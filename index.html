@@ -25,7 +25,38 @@
     <div id="drop-zone">Drag and drop an image here</div>
     <p id="classification-result">Drop an image to classify it.</p>
 
+    <!-- Insert the input fields below here -->
+
+    <form id="classification-form">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+
+        <label for="type">Type:</label>
+        <select id="type" name="type" required>
+            <option value="Bean">Bean</option>
+            <option value="Bitter_Gourd">Bitter Gourd</option>
+            <option value="Bottle_Gourd">Bottle Gourd</option>
+            <option value="Brinjal">Brinjal</option>
+            <option value="Broccoli">Broccoli</option>
+            <option value="Cabbage">Cabbage</option>
+            <option value="Capsicum">Capsicum</option>
+            <option value="Carrot">Carrot</option>
+            <option value="Cauliflower">Cauliflower</option>
+            <option value="Cucumber">Cucumber</option>
+            <option value="Papaya">Papaya</option>
+            <option value="Potato">Potato</option>
+            <option value="Pumpkin">Pumpkin</option>
+            <option value="Radish">Radish</option>
+            <option value="Tomato">Tomato</option>
+        </select><br><br>
+
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="classification-result"></div>
+
     <script src="app.js"></script>
 </body>
-
-</html>

@@ -56,4 +56,36 @@ document.addEventListener('DOMContentLoaded', function() {
             reader.readAsDataURL(file);
         }
     });
+
+
+    const form = document.getElementById("classification-form");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Get form data
+        const formData = new FormData(form);
+
+        // Construct URL with query parameters
+        const queryParams = new URLSearchParams(formData).toString();
+        const requestURL = `http://localhost:5000/query?${queryParams}`;
+
+        // Send GET request
+        fetch(requestURL)
+            .then(response => response.json())
+            .then(data => {
+                // Clear previous images
+                const classificationResult = document.getElementById("classification-result");
+                classificationResult.innerHTML = "";
+
+                // Append images
+                data.forEach(url => {
+                    const img = document.createElement("img");
+                    img.src = url;
+                    classificationResult.appendChild(img);
+                });
+            })
+            .catch(error => {
+                console.error("Error getting image URLs:", error);
+            });
+    });
 });
